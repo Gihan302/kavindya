@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ===================== CSS VARIABLES ===================== */
 
 :root {
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
   /* Light Mode (default) */
   --bg-primary: #f0fdf9;
   --bg-secondary: #e6f7f5;
@@ -62,7 +66,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -86,7 +90,7 @@ body {
 /* ===================== TYPOGRAPHY ===================== */
 
 h1, h2, h3, h4 {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-heading);
   color: var(--text-primary);
 }
 
@@ -162,7 +166,7 @@ h1, h2, h3, h4 {
 .btn-primary {
   background: var(--accent);
   color: #fff;
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   letter-spacing: 0.05em;
   padding: 12px 28px;
@@ -185,7 +189,7 @@ h1, h2, h3, h4 {
 .btn-outline {
   background: transparent;
   color: var(--accent);
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   letter-spacing: 0.05em;
   padding: 11px 28px;
@@ -361,7 +365,7 @@ h1, h2, h3, h4 {
 }
 
 .nav-link {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -402,7 +406,7 @@ h1, h2, h3, h4 {
   border-radius: 10px;
   padding: 14px 18px;
   color: var(--text-primary);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.95rem;
   width: 100%;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -421,7 +425,7 @@ h1, h2, h3, h4 {
 /* ===================== STATS COUNTER ===================== */
 
 .stat-number {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 800;
   font-size: 2.8rem;
   color: var(--accent);

@@ -1,7 +1,11 @@
 import { Navbar } from './components/common/Navbar';
 import { Hero } from './components/home/Hero';
 import { About } from './components/about/About';
+import { Timeline } from './components/timeline/Timeline';
+import { Skills } from './components/skills/Skills';
 import { Projects } from './components/projects/Projects';
+import { Impact } from './components/impact/Impact';
+import { Services } from './components/services/Services';
 import { Contact } from './components/contact/Contact';
 
 function App() {
@@ -12,7 +16,11 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Timeline />
+        <Skills />
         <Projects />
+        <Impact />
+        <Services />
         <Contact />
       </main>
       

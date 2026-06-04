@@ -1,59 +1,69 @@
-export interface ImpactItem {
-  id: string;
-  title: string;
-  organization: string;
-  description: string;
-  highlights: string[];
-  icon: string;
-}
+import { SectionTitle } from '../common/SectionTitle';
+import { Target, Users, BarChart3, Heart } from 'lucide-react';
 
-export const impactData: ImpactItem[] = [
+const IMPACTS = [
   {
-    id: 'zero-plastic',
-    title: 'Zero Plastic Club Volunteer',
-    organization: 'Rajarata University',
-    description: 'Actively organizing environmental cleanup, micro-plastics awareness campaigns, and plastic reduction drives across university and surrounding communities.',
-    highlights: [
-      'Environmental cleanup drives',
-      'Micro-plastics awareness campaigns',
-      'Plastic reduction initiatives',
-    ],
-    icon: '♻️',
+    icon: <Target size={32} />,
+    title: "Community Outreach",
+    value: "500+",
+    label: "People Reached",
+    description: "Conducted health awareness programs and surveys in rural communities."
   },
   {
-    id: 'hp-society',
-    title: 'Committee Member',
-    organization: 'Health Promotion Society, RUSL',
-    description: 'Contributing to student health advocacy, organizing awareness campaigns on communicable diseases, and planning department seminars.',
-    highlights: [
-      'Student health advocacy',
-      'Communicable disease awareness campaigns',
-      'Department seminar planning',
-    ],
-    icon: '🏛️',
+    icon: <Users size={32} />,
+    title: "Engagement",
+    value: "15+",
+    label: "Workshops Conducted",
+    description: "Organized small group communication programs for local hygiene improvement."
   },
   {
-    id: 'athletics',
-    title: 'Athletics Member',
-    organization: 'Rajarata University Athletics',
-    description: 'Long-distance running & marathon participation — cultivating physical resilience, long-term focus, and target-driven self-discipline directly applicable to field surveys.',
-    highlights: [
-      'Long-distance running',
-      'Marathon participation',
-      'Physical & mental resilience',
-    ],
-    icon: '🏃',
+    icon: <BarChart3 size={32} />,
+    title: "Data Analysis",
+    value: "95%",
+    label: "Accuracy Rate",
+    description: "Maintaining high standards in healthcare data collection and SPSS interpretation."
   },
   {
-    id: 'hiking',
-    title: 'Hiking Club Member',
-    organization: 'RUSL Hiking Club',
-    description: 'Active member of the university hiking club, building teamwork, nature awareness, and community spirit through organized treks.',
-    highlights: [
-      'Teamwork & leadership',
-      'Nature & environmental awareness',
-      'Community building',
-    ],
-    icon: '⛰️',
-  },
+    icon: <Heart size={32} />,
+    title: "Wellbeing",
+    value: "10+",
+    label: "Local Projects",
+    description: "Successfully implemented health promotion models in regional sectors."
+  }
 ];
+
+export const Impact = () => {
+  return (
+    <section id="impact" style={{ padding: '100px 0', background: 'var(--bg-primary)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+        <SectionTitle 
+          label="Our Impact" 
+          title="Making a" 
+          accent="Difference" 
+          center={true}
+          subtitle="Quantifiable results from community health interventions and research projects."
+        />
+        
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '30px',
+          marginTop: '40px'
+        }}>
+          {IMPACTS.map((item, index) => (
+            <div key={index} className="card" style={{ padding: '40px', textAlign: 'center' }}>
+              <div style={{ color: 'var(--accent)', marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+                {item.icon}
+              </div>
+              <div className="stat-number" style={{ marginBottom: '10px' }}>{item.value}</div>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '15px', color: 'var(--text-primary)' }}>{item.label}</h4>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

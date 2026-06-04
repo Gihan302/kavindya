@@ -1,3 +1,5 @@
+import { SectionTitle } from '../common/SectionTitle';
+
 export interface TimelineItem {
   id: string;
   period: string;
@@ -47,3 +49,69 @@ export const timelineData: TimelineItem[] = [
     ],
   },
 ];
+
+export const Timeline = () => {
+  return (
+    <section id="timeline" style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
+      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
+        <SectionTitle 
+          label="My Journey" 
+          title="Education &" 
+          accent="Experience" 
+          center={true}
+        />
+        
+        <div style={{ position: 'relative', marginTop: '60px' }}>
+          <div className="timeline-line" />
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+            {timelineData.map((item) => (
+              <div key={item.id} style={{ 
+                position: 'relative', 
+                paddingLeft: '50px',
+                animation: 'fadeUp 0.7s ease forwards'
+              }}>
+                <div className="timeline-dot" style={{ position: 'absolute', left: '-6px' }} />
+                
+                <div className="card" style={{ padding: '30px', textAlign: 'left' }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'flex-start',
+                    marginBottom: '15px',
+                    flexWrap: 'wrap',
+                    gap: '10px'
+                  }}>
+                    <div>
+                      <h3 style={{ fontSize: '1.4rem', marginBottom: '4px' }}>{item.title}</h3>
+                      <p style={{ color: 'var(--accent)', fontWeight: 600, fontSize: '1rem' }}>{item.organization}</p>
+                    </div>
+                    <span className="tag" style={{ background: 'var(--accent)', color: '#fff', border: 'none' }}>
+                      {item.period}
+                    </span>
+                  </div>
+                  
+                  <p style={{ color: 'var(--text-secondary)', marginBottom: '20px' }}>{item.description}</p>
+                  
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                    {item.highlights.map((highlight, idx) => (
+                      <span key={idx} style={{ 
+                        fontSize: '0.85rem', 
+                        padding: '4px 12px', 
+                        borderRadius: '6px', 
+                        background: 'var(--bg-primary)',
+                        border: '1px solid var(--border)'
+                      }}>
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
