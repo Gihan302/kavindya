@@ -61,7 +61,7 @@ export const About = () => {
             zIndex: 1
           }}>
             <img 
-              src="/assets/hero.png" 
+              src="/assets/image.jpg" 
               alt={PERSONAL.name} 
               style={{
                 width: '100%',
