@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#timeline' },
+  { label: 'Timeline', href: '#timeline' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Impact', href: '#impact' },
@@ -10,12 +10,12 @@ export const NAV_LINKS = [
 ];
 
 export const PERSONAL = {
-  name: 'Rusiru Lakshan',
+  name: 'Kavindya Lakshani',
   title: 'Health Promotion Undergraduate',
   university: 'Rajarata University of Sri Lanka',
-  email: 'lakshaanrusiru@gmail.com',
-  phone: '+94 71 922 62 02',
-  location: 'Siyabalakoratuwa, Diddenipotha, Makadura',
+  email: 'kavindayalakshani345@gmail.com',
+  phone: '0754534414',
+  location: 'Bandarawela, Sri Lanka',
   linkedin: 'https://linkedin.com',
-  cvPath: '/cv/Rusiru_CV.pdf',
+  cvPath: '/cv/Kavindya_CV.pdf',
 };

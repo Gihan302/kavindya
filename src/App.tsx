@@ -8,6 +8,7 @@ import { Projects } from './components/projects/Projects';
 import { Impact } from './components/impact/Impact';
 import { Services } from './components/services/Services';
 import { Contact } from './components/contact/Contact';
+import { PERSONAL } from './utils/constants';
 
 function App() {
   useEffect(() => {
@@ -46,14 +47,50 @@ function App() {
       </main>
       
       <footer style={{ 
-        padding: '60px 24px', 
+        padding: '80px 24px 40px', 
         textAlign: 'center', 
         borderTop: '1px solid var(--border)',
         background: 'var(--bg-card)'
       }}>
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-          © {new Date().getFullYear()} Rusiru Lakshan. All rights reserved.
-        </p>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 style={{ 
+            fontFamily: 'var(--font-heading)', 
+            fontSize: '1.8rem', 
+            marginBottom: '16px',
+            color: 'var(--text-primary)'
+          }}>
+            {PERSONAL.name}
+          </h2>
+          <p style={{ 
+            color: 'var(--text-muted)', 
+            maxWidth: '500px', 
+            margin: '0 auto 40px',
+            lineHeight: 1.6,
+            fontSize: '0.95rem'
+          }}>
+            Designed for academic and community public health campaigns.
+          </p>
+          
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '30px', 
+            marginBottom: '40px',
+            flexWrap: 'wrap'
+          }}>
+            <a href="#about" className="nav-link" style={{ fontSize: '0.85rem' }}>About</a>
+            <a href="#timeline" className="nav-link" style={{ fontSize: '0.85rem' }}>Timeline</a>
+            <a href="#skills" className="nav-link" style={{ fontSize: '0.85rem' }}>Skills</a>
+            <a href="#projects" className="nav-link" style={{ fontSize: '0.85rem' }}>Projects</a>
+            <a href={PERSONAL.cvPath} target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: '0.85rem' }}>CV {PERSONAL.name}</a>
+          </div>
+          
+          <div className="section-divider" style={{ marginBottom: '40px', opacity: 0.5 }} />
+          
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+            © 2026 {PERSONAL.name}. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
   )

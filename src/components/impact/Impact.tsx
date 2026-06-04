@@ -1,5 +1,5 @@
 import { SectionTitle } from '../common/SectionTitle';
-import { Leaf, Users, Heart, Award, Zap } from 'lucide-react';
+import { Leaf, Users, Heart, Award } from 'lucide-react';
 
 export const Impact = () => {
   const impacts = [
@@ -26,8 +26,7 @@ export const Impact = () => {
   const activities = [
     "Committee Member, Health Promotion Society",
     "Volunteer, Zero Plastic Club, Rajarata University",
-    "Member, RUSL Hiking Club",
-    "Athletics (Long-distance running & Marathon participation)"
+    "Member, RUSL Hiking Club"
   ];
 
   return (
@@ -70,9 +69,9 @@ export const Impact = () => {
             </div>
           </div>
 
-          {/* Extracurricular & Sports */}
+          {/* Extracurricular */}
           <div className="reveal reveal-delay-2">
-            <div style={{ marginBottom: '50px' }}>
+            <div>
               <h3 style={{ fontSize: '1.6rem', marginBottom: '30px' }}>Extracurricular Activities</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {activities.map((act, i) => (
@@ -92,26 +91,12 @@ export const Impact = () => {
                 ))}
               </div>
             </div>
-
-            <div className="card" style={{ padding: '30px', background: 'var(--tag-bg)', border: '1px solid var(--accent-border)' }}>
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Zap size={22} className="text-accent" /> Sports & Discipline
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.7 }}>
-                As an athletics member involved in <strong>long-distance running & marathon participation</strong>, 
-                I have cultivated physical resilience, long-term focus, and target-driven self-discipline, 
-                which I directly apply to my field surveys and research objectives.
-              </p>
-            </div>
           </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 968px) {
-          section#impact > div > div:last-child {
-            grid-template-columns: 1fr !important;
-          }
           div[style*="grid-template-columns: 1.5fr 1fr"] {
             grid-template-columns: 1fr !important;
           }
