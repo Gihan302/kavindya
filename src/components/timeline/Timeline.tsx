@@ -35,12 +35,14 @@ export const Timeline = () => {
   return (
     <section id="timeline" style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <SectionTitle 
-          label="My Journey" 
-          title="Education &" 
-          accent="Experience" 
-          center={true}
-        />
+        <div className="reveal">
+          <SectionTitle 
+            label="My Journey" 
+            title="Education &" 
+            accent="Experience" 
+            center={true}
+          />
+        </div>
         
         <div style={{ 
           display: 'grid', 
@@ -49,7 +51,7 @@ export const Timeline = () => {
           marginTop: '60px'
         }}>
           {/* Academic Column */}
-          <div>
+          <div className="reveal reveal-delay-1">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '30px' }}>
               <div style={{ color: 'var(--accent)', background: 'var(--tag-bg)', padding: '10px', borderRadius: '12px' }}>
                 <GraduationCap size={24} />
@@ -70,7 +72,7 @@ export const Timeline = () => {
           </div>
 
           {/* Field Column */}
-          <div>
+          <div className="reveal reveal-delay-2">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '30px' }}>
               <div style={{ color: 'var(--accent)', background: 'var(--tag-bg)', padding: '10px', borderRadius: '12px' }}>
                 <Briefcase size={24} />

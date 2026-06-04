@@ -12,19 +12,20 @@ export const Hero = () => {
       overflow: 'hidden'
     }}>
       {/* Background Orbs */}
-      <div className="orb" style={{ 
+      <div className="orb animate-float" style={{ 
         width: '600px', 
         height: '600px', 
         background: 'rgba(13, 148, 136, 0.15)', 
         top: '-100px', 
         right: '-100px' 
       }} />
-      <div className="orb" style={{ 
+      <div className="orb animate-float" style={{ 
         width: '400px', 
         height: '400px', 
         background: 'rgba(45, 212, 191, 0.1)', 
         bottom: '-50px', 
-        left: '-50px' 
+        left: '-50px',
+        animationDelay: '1s'
       }} />
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
@@ -38,7 +39,8 @@ export const Hero = () => {
             fontWeight: 800, 
             lineHeight: 1.1, 
             margin: '24px 0',
-            animationDelay: '0.1s'
+            animationDelay: '0.1s',
+            letterSpacing: '-0.03em'
           }}>
             Driving Change Through <br />
             <span className="text-accent text-glow">Health Promotion</span>
@@ -49,7 +51,8 @@ export const Hero = () => {
             color: 'var(--text-secondary)',
             marginBottom: '40px',
             animationDelay: '0.2s',
-            maxWidth: '600px'
+            maxWidth: '600px',
+            lineHeight: 1.6
           }}>
             Hi, I'm {PERSONAL.name}. I specialize in community health strategies, 
             behavioral modification, and healthcare research.
@@ -61,10 +64,10 @@ export const Hero = () => {
             flexWrap: 'wrap',
             animationDelay: '0.3s'
           }}>
-            <a href="#projects" className="btn-primary">
+            <a href="#projects" className="btn-primary" style={{ borderRadius: '14px', padding: '16px 32px' }}>
               View Projects <MousePointer2 size={18} />
             </a>
-            <a href="#contact" className="btn-outline">
+            <a href="#contact" className="btn-outline" style={{ borderRadius: '14px', padding: '16px 32px' }}>
               Let's Talk
             </a>
           </div>

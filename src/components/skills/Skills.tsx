@@ -61,27 +61,34 @@ export const Skills = () => {
   return (
     <section id="skills" style={{ padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <SectionTitle 
-          label="My Expertise" 
-          title="Skills &" 
-          accent="Specializations" 
-          center={true}
-          subtitle="Specialized competencies in public health, community engagement, and healthcare research."
-        />
+        <div className="reveal">
+          <SectionTitle 
+            label="My Expertise" 
+            title="Skills &" 
+            accent="Specializations" 
+            center={true}
+            subtitle="Specialized competencies in public health, community engagement, and healthcare research."
+          />
+        </div>
         
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
           gap: '30px' 
         }}>
-          {skillsData.map((category) => (
-            <div key={category.id} className="card" style={{ 
-              padding: '40px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              textAlign: 'left'
-            }}>
+          {skillsData.map((category, index) => (
+            <div 
+              key={category.id} 
+              className={`card reveal reveal-delay-${(index % 5) + 1}`} 
+              style={{ 
+                padding: '40px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                textAlign: 'left',
+                height: '100%'
+              }}
+            >
               <div style={{ 
                 color: 'var(--accent)', 
                 marginBottom: '20px',
@@ -91,7 +98,8 @@ export const Skills = () => {
                 borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px var(--accent-glow)'
               }}>
                 {category.icon}
               </div>
@@ -107,21 +115,27 @@ export const Skills = () => {
               
               <div style={{ 
                 display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: '10px',
-                marginTop: 'auto'
+                flexDirection: 'column',
+                gap: '12px',
+                width: '100%'
               }}>
                 {category.skills.map((skill) => (
-                  <span key={skill} className="tag" style={{
-                    fontSize: '0.85rem',
-                    padding: '6px 14px',
-                    background: 'var(--bg-secondary)',
-                    border: '1px solid var(--border)',
-                    color: 'var(--text-secondary)',
-                    fontWeight: 500
+                  <div key={skill} style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    fontSize: '0.95rem',
+                    color: 'var(--text-secondary)'
                   }}>
+                    <div style={{ 
+                      width: '6px', 
+                      height: '6px', 
+                      borderRadius: '50%', 
+                      background: 'var(--accent)',
+                      flexShrink: 0
+                    }} />
                     {skill}
-                  </span>
+                  </div>
                 ))}
               </div>
             </div>

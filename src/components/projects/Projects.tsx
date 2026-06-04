@@ -32,13 +32,15 @@ export const Projects = () => {
   return (
     <section id="projects" style={{ padding: '100px 0', background: 'var(--bg-primary)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <SectionTitle 
-          label="My Work" 
-          title="Academic &" 
-          accent="Field Projects" 
-          center={true}
-          subtitle="A selection of my recent initiatives in community health and academic research."
-        />
+        <div className="reveal">
+          <SectionTitle 
+            label="My Work" 
+            title="Academic &" 
+            accent="Field Projects" 
+            center={true}
+            subtitle="A selection of my recent initiatives in community health and academic research."
+          />
+        </div>
         
         <div style={{ 
           display: 'grid', 
@@ -46,12 +48,16 @@ export const Projects = () => {
           gap: '30px' 
         }}>
           {PROJECTS.map((project, index) => (
-            <div key={index} className="card" style={{ 
-              padding: '32px', 
-              display: 'flex', 
-              flexDirection: 'column',
-              minHeight: '300px'
-            }}>
+            <div 
+              key={index} 
+              className={`card reveal reveal-delay-${(index % 5) + 1}`}
+              style={{ 
+                padding: '32px', 
+                display: 'flex', 
+                flexDirection: 'column',
+                minHeight: '300px'
+              }}
+            >
               <div style={{ 
                 display: 'flex', 
                 justifyContent: 'space-between', 

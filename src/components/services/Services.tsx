@@ -32,62 +32,97 @@ export const Services = () => {
   return (
     <section id="services" style={{ padding: '100px 0', background: 'var(--bg-primary)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <SectionTitle 
-          label="Capabilities" 
-          title="Professional" 
-          accent="Services" 
-          center={true}
-          subtitle="Providing expert solutions in public health, community research, and data-driven interventions."
-        />
+        <div className="reveal">
+          <SectionTitle 
+            label="Capabilities" 
+            title="Professional" 
+            accent="Services" 
+            center={true}
+            subtitle="Providing expert solutions in public health, community research, and data-driven interventions."
+          />
+        </div>
         
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '30px',
-          marginTop: '40px'
-        }}>
+        <div 
+          className="services-grid"
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(2, 1fr)', 
+            gap: '30px',
+            marginTop: '40px'
+          }}
+        >
           {SERVICES.map((service, index) => (
-            <div key={index} className="card" style={{ 
-              padding: '40px', 
-              display: 'flex', 
-              flexDirection: 'column',
-              textAlign: 'left',
-              transition: 'transform 0.3s ease'
-            }}>
+            <div 
+              key={index} 
+              className={`card reveal reveal-delay-${(index % 5) + 1}`}
+              style={{ 
+                padding: '40px', 
+                display: 'flex', 
+                flexDirection: 'column',
+                textAlign: 'left',
+                transition: 'all 0.3s ease',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border)',
+                borderRadius: '20px'
+              }}
+            >
               <div style={{ 
                 color: 'var(--accent)', 
                 marginBottom: '25px',
                 background: 'var(--tag-bg)',
-                width: '60px',
-                height: '60px',
+                width: '64px',
+                height: '64px',
                 borderRadius: '16px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                boxShadow: '0 4px 12px var(--accent-glow)'
               }}>
                 {service.icon}
               </div>
               
-              <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', minHeight: '3.5rem', display: 'flex', alignItems: 'center' }}>
+              <h3 style={{ 
+                fontSize: '1.5rem', 
+                marginBottom: '15px', 
+                fontWeight: 700,
+                fontFamily: 'var(--font-heading)'
+              }}>
                 {service.title}
               </h3>
               
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '30px', flexGrow: 1 }}>
+              <p style={{ 
+                color: 'var(--text-secondary)', 
+                lineHeight: 1.7, 
+                marginBottom: '30px', 
+                flexGrow: 1,
+                fontSize: '1.05rem'
+              }}>
                 {service.description}
               </p>
               
               <a href="#contact" className="btn-outline" style={{ 
-                padding: '10px 20px', 
-                fontSize: '0.9rem',
+                padding: '12px 24px', 
+                fontSize: '0.95rem',
                 width: 'fit-content',
-                justifyContent: 'center'
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                borderRadius: '12px'
               }}>
-                {service.btnText} <ArrowRight size={16} />
+                {service.btnText} <ArrowRight size={18} />
               </a>
             </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 968px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

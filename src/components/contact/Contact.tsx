@@ -6,13 +6,15 @@ export const Contact = () => {
   return (
     <section id="contact" style={{ padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <SectionTitle 
-          label="Get In Touch" 
-          title="Let's Start a" 
-          accent="Conversation" 
-          center={true}
-          subtitle="Whether you have a question or want to collaborate, my inbox is always open."
-        />
+        <div className="reveal">
+          <SectionTitle 
+            label="Get In Touch" 
+            title="Let's Start a" 
+            accent="Conversation" 
+            center={true}
+            subtitle="Whether you have a question or want to collaborate, my inbox is always open."
+          />
+        </div>
         
         <div style={{ 
           display: 'grid', 
@@ -21,7 +23,7 @@ export const Contact = () => {
           marginTop: '40px'
         }}>
           {/* Contact Info */}
-          <div>
+          <div className="reveal reveal-delay-1">
             <h3 style={{ fontSize: '1.8rem', marginBottom: '30px' }}>Contact Information</h3>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
@@ -85,7 +87,7 @@ export const Contact = () => {
           </div>
           
           {/* Contact Form */}
-          <div className="card" style={{ padding: '40px' }}>
+          <div className="card reveal reveal-delay-2" style={{ padding: '40px' }}>
             <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={(e) => e.preventDefault()}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <div>

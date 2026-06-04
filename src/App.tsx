@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navbar } from './components/common/Navbar';
 import { Hero } from './components/home/Hero';
 import { About } from './components/about/About';
@@ -9,6 +10,26 @@ import { Services } from './components/services/Services';
 import { Contact } from './components/contact/Contact';
 
 function App() {
+  useEffect(() => {
+    const revealCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(revealCallback, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="app-container">
       <div className="bg-grid" style={{ position: 'fixed', inset: 0, zIndex: -1, opacity: 0.4 }} />

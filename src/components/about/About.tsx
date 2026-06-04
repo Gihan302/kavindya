@@ -5,16 +5,19 @@ import aboutImg from '../../assets/image.jpg';
 export const About = () => {
   return (
     <section id="about" style={{ padding: '100px 0' }}>
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 24px',
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '60px',
-        alignItems: 'center'
-      }}>
-        <div>
+      <div 
+        className="reveal"
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '60px',
+          alignItems: 'center'
+        }}
+      >
+        <div className="reveal reveal-delay-1">
           <SectionTitle 
             label="About Me" 
             title="Professional Background" 
@@ -50,7 +53,7 @@ export const About = () => {
           </div>
         </div>
         
-        <div style={{ position: 'relative' }}>
+        <div className="reveal reveal-delay-2" style={{ position: 'relative' }}>
           <div style={{
             width: '100%',
             height: '500px',

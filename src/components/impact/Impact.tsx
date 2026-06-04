@@ -33,13 +33,15 @@ export const Impact = () => {
   return (
     <section id="impact" style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <SectionTitle 
-          label="Involvement" 
-          title="Impact &" 
-          accent="Volunteering" 
-          center={true}
-          subtitle="Contributing to community well-being and environmental sustainability."
-        />
+        <div className="reveal">
+          <SectionTitle 
+            label="Involvement" 
+            title="Impact &" 
+            accent="Volunteering" 
+            center={true}
+            subtitle="Contributing to community well-being and environmental sustainability."
+          />
+        </div>
         
         <div style={{ 
           display: 'grid', 
@@ -48,7 +50,7 @@ export const Impact = () => {
           alignItems: 'start'
         }}>
           {/* Main Impacts */}
-          <div>
+          <div className="reveal reveal-delay-1">
             <h3 style={{ fontSize: '1.6rem', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <Users size={28} className="text-accent" /> Community & Social Impact
             </h3>
@@ -69,7 +71,7 @@ export const Impact = () => {
           </div>
 
           {/* Extracurricular & Sports */}
-          <div>
+          <div className="reveal reveal-delay-2">
             <div style={{ marginBottom: '50px' }}>
               <h3 style={{ fontSize: '1.6rem', marginBottom: '30px' }}>Extracurricular Activities</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
