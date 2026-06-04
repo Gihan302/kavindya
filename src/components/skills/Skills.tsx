@@ -1,57 +1,58 @@
 import { SectionTitle } from '../common/SectionTitle';
+import { Activity, Microscope, Users, Laptop } from 'lucide-react';
 
 export interface SkillCategory {
   id: string;
   category: string;
-  icon: string;
-  skills: { name: string; level: number }[];
+  icon: React.ReactNode;
+  skills: string[];
 }
 
 export const skillsData: SkillCategory[] = [
   {
     id: 'public-health',
     category: 'Public Health & Promotion',
-    icon: '🏥',
+    icon: <Activity size={32} />,
     skills: [
-      { name: 'Health Promotion Strategies', level: 90 },
-      { name: 'Community Health Assessment', level: 88 },
-      { name: 'Health Education', level: 85 },
-      { name: 'Behavioral Change Communication', level: 82 },
-      { name: 'Disease Prevention & Control', level: 80 },
+      'Health Promotion Strategies',
+      'Community Health Assessment',
+      'Health Education',
+      'Behavioral Change Communication',
+      'Disease Prevention & Control',
     ],
   },
   {
     id: 'research',
     category: 'Research & Methodology',
-    icon: '🔬',
+    icon: <Microscope size={32} />,
     skills: [
-      { name: 'Research Methodology', level: 85 },
-      { name: 'Data Collection Techniques', level: 88 },
-      { name: 'SPSS / Excel Data Analysis', level: 82 },
-      { name: 'Report Writing & Interpretation', level: 84 },
-      { name: 'Basic Epidemiology', level: 78 },
+      'Research Methodology',
+      'Data Collection Techniques',
+      'SPSS / Excel Data Analysis',
+      'Report Writing & Interpretation',
+      'Basic Epidemiology',
     ],
   },
   {
     id: 'fieldwork',
     category: 'Field Work & Organizing',
-    icon: '🌍',
+    icon: <Users size={32} />,
     skills: [
-      { name: 'Health Campaigns', level: 90 },
-      { name: 'Community Engagement', level: 92 },
-      { name: 'Field Data Collection', level: 88 },
-      { name: 'Workshops Organization', level: 85 },
+      'Health Campaigns',
+      'Community Engagement',
+      'Field Data Collection',
+      'Workshops Organization',
     ],
   },
   {
     id: 'technical',
     category: 'Technical & Digital',
-    icon: '💻',
+    icon: <Laptop size={32} />,
     skills: [
-      { name: 'Microsoft Office', level: 88 },
-      { name: 'Google Forms', level: 90 },
-      { name: 'Data Visualization', level: 78 },
-      { name: 'Social Media for Health', level: 82 },
+      'Microsoft Office Suite',
+      'Google Forms',
+      'Data Visualization',
+      'Social Media for Health',
     ],
   },
 ];
@@ -65,39 +66,62 @@ export const Skills = () => {
           title="Skills &" 
           accent="Specializations" 
           center={true}
-          subtitle="A comprehensive overview of my professional competencies in health promotion and research."
+          subtitle="Specialized competencies in public health, community engagement, and healthcare research."
         />
         
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '30px' 
         }}>
           {skillsData.map((category) => (
-            <div key={category.id} className="card" style={{ padding: '30px' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '20px' }}>{category.icon}</div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '25px' }}>{category.category}</h3>
+            <div key={category.id} className="card" style={{ 
+              padding: '40px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              textAlign: 'left'
+            }}>
+              <div style={{ 
+                color: 'var(--accent)', 
+                marginBottom: '20px',
+                background: 'var(--tag-bg)',
+                width: '60px',
+                height: '60px',
+                borderRadius: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                {category.icon}
+              </div>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <h3 style={{ 
+                fontSize: '1.4rem', 
+                marginBottom: '20px',
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 700
+              }}>
+                {category.category}
+              </h3>
+              
+              <div style={{ 
+                display: 'flex', 
+                flexWrap: 'wrap', 
+                gap: '10px',
+                marginTop: 'auto'
+              }}>
                 {category.skills.map((skill) => (
-                  <div key={skill.name}>
-                    <div style={{ 
-                      display: 'flex', 
-                      justifyContent: 'space-between', 
-                      marginBottom: '8px',
-                      fontSize: '0.9rem',
-                      fontWeight: 500
-                    }}>
-                      <span>{skill.name}</span>
-                      <span style={{ color: 'var(--accent)' }}>{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-bar-fill" 
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <span key={skill} className="tag" style={{
+                    fontSize: '0.85rem',
+                    padding: '6px 14px',
+                    background: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
+                    color: 'var(--text-secondary)',
+                    fontWeight: 500
+                  }}>
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>

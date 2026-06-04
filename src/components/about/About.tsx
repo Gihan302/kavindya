@@ -1,5 +1,6 @@
 import { SectionTitle } from '../common/SectionTitle';
 import { PERSONAL } from '../../utils/constants';
+import aboutImg from '../../assets/image.jpg';
 
 export const About = () => {
   return (
@@ -61,13 +62,13 @@ export const About = () => {
             zIndex: 1
           }}>
             <img 
-              src="/assets/image.jpg" 
+              src={aboutImg} 
               alt={PERSONAL.name} 
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                filter: 'grayscale(0.2) contrast(1.1)'
+                objectPosition: 'center 20%'
               }}
             />
           </div>

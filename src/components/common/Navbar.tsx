@@ -12,8 +12,35 @@ export const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
+    // Intersection Observer for scroll tracking
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Track all sections that have a nav link
+    NAV_LINKS.forEach(link => {
+      const section = document.querySelector(link.href);
+      if (section) observer.observe(section);
+    });
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -30,12 +57,13 @@ export const Navbar = () => {
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 24px',
+        height: '50px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
       }}>
         {/* Logo */}
-        <a href="#home" style={{ textDecoration: 'none' }}>
+        <a href="#home" style={{ textDecoration: 'none' }} onClick={() => handleNavClick('#home')}>
           <span style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 800,

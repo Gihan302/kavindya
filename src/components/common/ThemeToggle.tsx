@@ -1,4 +1,5 @@
 import { useTheme } from '../../hooks/useTheme';
+import { Moon, Sun } from 'lucide-react';
 
 export const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
@@ -21,8 +22,26 @@ export const ThemeToggle = () => {
         padding: '3px',
       }}
     >
-      <span style={{ fontSize: '12px', position: 'absolute', left: '7px' }}>🌙</span>
-      <span style={{ fontSize: '12px', position: 'absolute', right: '7px' }}>☀️</span>
+      <div style={{ 
+        fontSize: '12px', 
+        position: 'absolute', 
+        left: '6px',
+        color: 'var(--text-muted)',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <Moon size={14} />
+      </div>
+      <div style={{ 
+        fontSize: '12px', 
+        position: 'absolute', 
+        right: '6px',
+        color: 'var(--text-muted)',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <Sun size={14} />
+      </div>
       <span
         style={{
           display: 'block',
