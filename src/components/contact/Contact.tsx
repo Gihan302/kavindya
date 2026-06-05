@@ -25,9 +25,9 @@ export const Contact = () => {
     
     // EmailJS Configuration
     // Replace placeholders with your actual IDs from the EmailJS dashboard
-    const SERVICE_ID = 'service_nviqgrw'; 
-    const TEMPLATE_ID = 'template_placeholder'; // Replace this
-    const PUBLIC_KEY = 'public_key_placeholder'; // Replace this
+    const SERVICE_ID = 'service_4ridtva'; 
+    const TEMPLATE_ID = 'template_egkjuhm'; // Replace this
+    const PUBLIC_KEY = 'FlmRMvsLN-hms4oNC'; // Replace this
 
     const templateParams = {
       from_name: formData.name,
