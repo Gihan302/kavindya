@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { SectionTitle } from '../common/SectionTitle';
 import { PERSONAL } from '../../utils/constants';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ export const Contact = () => {
     message: ''
   });
   
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,14 +23,31 @@ export const Contact = () => {
     e.preventDefault();
     setStatus('sending');
     
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('sent');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset status after 5 seconds
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1500);
+    // EmailJS Configuration
+    // Replace placeholders with your actual IDs from the EmailJS dashboard
+    const SERVICE_ID = 'service_nviqgrw'; 
+    const TEMPLATE_ID = 'template_placeholder'; // Replace this
+    const PUBLIC_KEY = 'public_key_placeholder'; // Replace this
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_name: PERSONAL.name,
+    };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setStatus('sent');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      }, (err) => {
+        console.log('FAILED...', err);
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
+      });
   };
 
   return (
@@ -144,6 +162,23 @@ export const Contact = () => {
               </div>
             ) : (
               <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={handleSubmit}>
+                {status === 'error' && (
+                  <div style={{ 
+                    padding: '12px 16px', 
+                    background: 'rgba(239, 68, 68, 0.1)', 
+                    border: '1px solid rgba(239, 68, 68, 0.2)', 
+                    borderRadius: '8px',
+                    color: '#ef4444',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    fontSize: '0.9rem'
+                  }}>
+                    <AlertCircle size={18} />
+                    Oops! Something went wrong. Please try again.
+                  </div>
+                )}
+
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Name</label>

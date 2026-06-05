@@ -88,8 +88,8 @@ export const Hero = () => {
       {/* Animated Scroll Indicator */}
       <div style={{ 
         position: 'absolute', 
-        bottom: '40px', 
-        left: '50%', 
+        bottom: '45px', 
+        left: '55%', 
         transform: 'translateX(-50%)',
         animation: 'float 2s ease-in-out infinite'
       }}>
