@@ -1,8 +1,37 @@
+import { useState } from 'react';
 import { SectionTitle } from '../common/SectionTitle';
 import { PERSONAL } from '../../utils/constants';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+    
+    // Simulate API call
+    setTimeout(() => {
+      setStatus('sent');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Reset status after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000);
+    }, 1500);
+  };
+
   return (
     <section id="contact" style={{ padding: '100px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
@@ -88,32 +117,97 @@ export const Contact = () => {
           
           {/* Contact Form */}
           <div className="card reveal reveal-delay-2" style={{ padding: '40px' }}>
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={(e) => e.preventDefault()}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                <div>
-                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Name</label>
-                  <input type="text" className="form-field" placeholder="Your Name" />
+            {status === 'sent' ? (
+              <div style={{ 
+                height: '100%', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                textAlign: 'center',
+                gap: '20px'
+              }}>
+                <div style={{ color: 'var(--accent)', background: 'var(--tag-bg)', padding: '20px', borderRadius: '50%' }}>
+                  <CheckCircle size={48} />
                 </div>
                 <div>
-                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Email</label>
-                  <input type="email" className="form-field" placeholder="Your Email" />
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Message Sent!</h3>
+                  <p style={{ color: 'var(--text-secondary)' }}>Thank you for reaching out. I'll get back to you as soon as possible.</p>
                 </div>
+                <button 
+                  onClick={() => setStatus('idle')}
+                  className="btn-outline"
+                  style={{ marginTop: '10px' }}
+                >
+                  Send Another Message
+                </button>
               </div>
-              
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Subject</label>
-                <input type="text" className="form-field" placeholder="Project Inquiry" />
-              </div>
-              
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Message</label>
-                <textarea className="form-field" style={{ minHeight: '150px', resize: 'vertical' }} placeholder="How can I help you?"></textarea>
-              </div>
-              
-              <button type="submit" className="btn-primary" style={{ width: 'fit-content' }}>
-                Send Message <Send size={18} />
-              </button>
-            </form>
+            ) : (
+              <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }} onSubmit={handleSubmit}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Name</label>
+                    <input 
+                      type="text" 
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="form-field" 
+                      placeholder="Your Name" 
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Email</label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="form-field" 
+                      placeholder="Your Email" 
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Subject</label>
+                  <input 
+                    type="text" 
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="form-field" 
+                    placeholder="Project Inquiry" 
+                  />
+                </div>
+                
+                <div>
+                  <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 500 }}>Message</label>
+                  <textarea 
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="form-field" 
+                    style={{ minHeight: '150px', resize: 'vertical' }} 
+                    placeholder="How can I help you?"
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  className="btn-primary" 
+                  style={{ width: 'fit-content' }}
+                  disabled={status === 'sending'}
+                >
+                  {status === 'sending' ? 'Sending...' : 'Send Message'} 
+                  <Send size={18} style={{ marginLeft: '8px' }} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

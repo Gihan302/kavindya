@@ -46,7 +46,13 @@ export const About = () => {
             </div>
             
             <div style={{ marginTop: '40px' }}>
-              <a href={PERSONAL.cvPath} className="btn-primary" target="_blank" rel="noopener noreferrer">
+              <a 
+                href={PERSONAL.cvPath} 
+                className="btn-primary" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                download="Kavindya_Lakshani_CV.pdf"
+              >
                 Download CV
               </a>
             </div>

@@ -17,5 +17,5 @@ export const PERSONAL = {
   phone: '0754534414',
   location: 'Bandarawela, Sri Lanka',
   linkedin: 'https://linkedin.com',
-  cvPath: '/cv/Kavindya_CV.pdf',
+  cvPath: '/cv/CV.pdf',
 };

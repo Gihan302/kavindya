@@ -11,10 +11,9 @@ export interface SkillCategory {
 export const skillsData: SkillCategory[] = [
   {
     id: 'public-health',
-    category: 'Public Health & Promotion',
+    category: 'Health Promotion Strategies',
     icon: <Activity size={32} />,
     skills: [
-      'Health Promotion Strategies',
       'Community Health Assessment',
       'Health Education',
       'Behavioral Change Communication',
@@ -73,7 +72,7 @@ export const Skills = () => {
         
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
           gap: '30px' 
         }}>
           {skillsData.map((category, index) => (
