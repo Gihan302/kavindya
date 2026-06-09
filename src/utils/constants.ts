@@ -16,6 +16,6 @@ export const PERSONAL = {
   email: 'kavindayalakshani345@gmail.com',
   phone: '0754534414',
   location: 'Bandarawela, Sri Lanka',
-  linkedin: 'https://linkedin.com',
-  cvPath: '/cv/CV.pdf',
+  linkedin: 'https://www.linkedin.com/in/kavindya-lakshani-a46bb9381/',
+  cvPath: 'public/cv/Kavindya_Lakshani_CV.pdf',
 };

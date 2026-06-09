@@ -1,6 +1,7 @@
 import { SectionTitle } from '../common/SectionTitle';
 import { PERSONAL } from '../../utils/constants';
 import aboutImg from '../../assets/image.jpg';
+import { Link } from 'lucide-react';
 
 export const About = () => {
   return (
@@ -37,7 +38,7 @@ export const About = () => {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
               <div>
                 <h4 style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>Degree</h4>
-                <p style={{ fontSize: '0.95rem' }}>BSc (Hons) in Health Promotion</p>
+                <p style={{ fontSize: '0.95rem' }}>BSc in Health Promotion</p>
               </div>
               <div>
                 <h4 style={{ color: 'var(--text-primary)', marginBottom: '8px' }}>Location</h4>
@@ -45,7 +46,7 @@ export const About = () => {
               </div>
             </div>
             
-            <div style={{ marginTop: '40px' }}>
+            <div style={{ marginTop: '40px', display: 'flex', gap: '20px', alignItems: 'center' }}>
               <a 
                 href={PERSONAL.cvPath} 
                 className="btn-primary" 
@@ -54,6 +55,24 @@ export const About = () => {
                 download="Kavindya_Lakshani_CV.pdf"
               >
                 Download CV
+              </a>
+              <a 
+                href={PERSONAL.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '8px', 
+                  color: 'var(--text-primary)',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  fontSize: '0.95rem'
+                }}
+                className="hover-accent"
+              >
+                <Link size={20} />
+                LinkedIn Profile
               </a>
             </div>
           </div>
