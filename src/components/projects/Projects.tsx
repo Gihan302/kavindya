@@ -85,10 +85,9 @@ const HEALTH_PROJECTS = [
   },
   {
     id: 5,
-    title: "Successfully Completed 2 Years of Health Promotion Intervention to Improve ECCD Practices Among Preschool Children and Their Mothers in Ashokapura village",
+    title: "Community symposium with all the community members in Ashokapura village",
     category: "Community Intervention",
     period: "2023 - 2025",
-    description: "Localized ECCD intervention in Ashokapura village, showing significant improvements in child development metrics.",
     images: [
       new URL('../../assets/projects/5/Image 17.jpeg', import.meta.url).href,
       new URL('../../assets/projects/5/Image 18.jpeg', import.meta.url).href,
