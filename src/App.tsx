@@ -82,7 +82,7 @@ function App() {
             <a href="#timeline" className="nav-link" style={{ fontSize: '0.85rem' }}>Timeline</a>
             <a href="#skills" className="nav-link" style={{ fontSize: '0.85rem' }}>Skills</a>
             <a href="#projects" className="nav-link" style={{ fontSize: '0.85rem' }}>Projects</a>
-            <a href={PERSONAL.cvPath} target="_blank" rel="noopener noreferrer" download="Kavindya_Lakshani_CV.pdf" className="nav-link" style={{ fontSize: '0.85rem' }}>CV {PERSONAL.name}</a>
+            <a href={`${import.meta.env.BASE_URL}${PERSONAL.cvPath}`} target="_blank" rel="noopener noreferrer" download="Kavindya_Lakshani_CV.pdf" className="nav-link" style={{ fontSize: '0.85rem' }}>CV {PERSONAL.name}</a>
           </div>
           
           <div className="section-divider" style={{ marginBottom: '40px', opacity: 0.5 }} />

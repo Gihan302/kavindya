@@ -48,7 +48,7 @@ export const About = () => {
             
             <div style={{ marginTop: '40px', display: 'flex', gap: '20px', alignItems: 'center' }}>
               <a 
-                href={PERSONAL.cvPath} 
+                href={`${import.meta.env.BASE_URL}${PERSONAL.cvPath}`} 
                 className="btn-primary" 
                 target="_blank" 
                 rel="noopener noreferrer"
